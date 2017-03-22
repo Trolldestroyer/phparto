@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div>
+        <form method="post" action="{{ path('app_report_doInsert') }}">
+            Title: <input type="text" name="title"><br>
+            Description: <input type="text" name="description"><br>
+            Autor: <input type="text" name="autor"><br>
+            <input type="submit" value="Insert">
+        </form>
+    </div>
+{% endblock %}

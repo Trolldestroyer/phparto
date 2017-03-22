@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div>
+        <form method="post" action="{{ path('app_report_doUpdate') }}">
+            <input type="hidden" name="id" value="{{ report.id }}">
+            {{ report.id }}<br>
+            <input type="text" value="{{ report.title }}" name="title"><br>
+            <input type="text" value="{{ report.description }}" name="description"><br>
+            <input type="text" value="{{ report.autor }}" name="autor"><br>
+            {{ report.createdAt|date("d/m/Y H:i:s") }}<br>
+            {{ report.updatedAt|date("d/m/Y H:i:s") }}<br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+{% endblock %}
