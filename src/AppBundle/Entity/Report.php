@@ -43,11 +43,9 @@ class Report
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="autor", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Trascastro\UserBundle\Entity\User", inversedBy="reportsCreados")
      */
-    private $autor;
+    private $creador;
 
     /**
      * @var \DateTime
@@ -71,7 +69,7 @@ class Report
     public function __construct()
     {
         $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
+        $this->updatedAt = $this->createdAt;
     }
 
     /**
@@ -133,28 +131,21 @@ class Report
     }
 
     /**
-     * Set autor
-     *
-     * @param string $autor
-     *
-     * @return Report
+     * @return mixed
      */
-    public function setAutor($autor)
+    public function getCreador()
     {
-        $this->autor = $autor;
-
-        return $this;
+        return $this->creador;
     }
 
     /**
-     * Get autor
-     *
-     * @return string
+     * @param mixed $creador
      */
-    public function getAutor()
+    public function setCreador($creador)
     {
-        return $this->autor;
+        $this->creador = $creador;
     }
+
 
     /**
      * @return \DateTime

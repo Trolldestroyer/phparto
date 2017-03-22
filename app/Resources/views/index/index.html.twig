@@ -1,5 +1,23 @@
 {% extends '::base.html.twig' %}
 
+{% block title %}Index{% endblock %}
+
 {% block body %}
-    <h1>New Project Created</h1>
+    <table>
+        {% for report in reports %}
+            <tr>
+                <td> Title: {{ report.title }}</td>
+                <td> |Description: {{ report.description }}</td>
+                <td>|Autor: {{ report.autor }}</td>
+                <td>||{{ report.createdAt|date("d/m/Y H:i:s") }}|</td>
+                <td>|{{ report.updatedAt|date("d/m/Y H:i:s") }}||</td>
+                <td><a href="{{ path('app_report_update', {'id': report.id}) }}">update</a> </td>
+                <td><a href="{{ path('app_report_remove', {'id': report.id}) }}">remove</a> </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    <div style="margin-top: 10px">
+        <a href="{{ path('app_report_insert') }}">New Report</a>
+    </div>
 {% endblock %}

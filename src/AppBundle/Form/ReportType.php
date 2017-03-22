@@ -21,9 +21,8 @@ class ReportType extends  AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, ['error_bubbling' => true, 'attr' => ['class' => 'anyClass']])
-            ->add('description', TextType::class, ['error_bubbling' => true])
-            ->add('autor', TextType::class, ['error_bubbling' => true])
+            ->add('title', TextType::class)
+            ->add('description', TextType::class)
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
