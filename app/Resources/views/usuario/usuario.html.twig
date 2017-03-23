@@ -20,25 +20,20 @@
                 </div>
             </div>
         </div>
-        <h1 style="padding-top:30px;margin-bottom: 100px;">Reports creados por {{ usuario.username }}</h1>
+        <h1 style="padding-top:30px;margin-bottom: 50px;">Reports creados por {{ usuario.username }}</h1>
         <div class="profile-body">
             {% for report in usuario.reportsCreados %}
                 <div class="col-sm-6 profile-body" style="min-height: 523px">
-
-                    <div class="projects">
-                        <h2><a class="color-dark" href="{{ path('app_index_show', {'slug': report.id}) }}">{{ report.title }}</a></h2>
+                    <div>
+                        <h2><a class="color-dark" href="{{ path('app_index_show', {'slug': report.id}) }}">👁 ️{{ report.title }}</a></h2>
                         <ul class="list-unstyled list-inline blog-info-v2">
                             <li>By: <a class="color-green" href="{{ path('app_index_show', {'slug': report.id}) }}">{{ report.creador }}</a></li>
                             <li><i class="fa fa-clock-o"></i> {{ report.createdAt| date("d/m/Y H:i:s") }}</li>
                         </ul>
                         <p>{{ report.description }}</p>
                         <br>
-
-
                     </div>
-
                 </div>
-
             {% endfor %}
         </div>
 
