@@ -3,19 +3,25 @@
 {% block title %}Index{% endblock %}
 
 {% block body %}
-    <table>
-        {% for report in reports %}
-            <tr>
-                <td> Title: {{ report.title }}</td>
-                <td> |Description: {{ report.description }}</td>
-                <td>|Autor: {{ report.creador }}</td>
-                <td>||{{ report.createdAt|date("d/m/Y H:i:s") }}|</td>
-                <td>|{{ report.updatedAt|date("d/m/Y H:i:s") }}||</td>
-                
-            </tr>
+    <div
+            class="contenedor-reports container col-lg-12 col-md-12 col-sm-12 col-xs-12"
+            style="background-color: white; padding: 10px;"
+    >
+        <div class="profile-body">
+            {% for report in reports %}
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: rgba(169, 245, 242, 0.26); margin-bottom: 1%; padding: 1px; border: 2px solid rgba(0, 0, 0, 0.3); border-radius: 10px;">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" ><h4>Title: </h4> </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="height: 40px; text-align: center;" ><h4>{{ report.title }}</h4></div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style=""><h4>Description:</h4> </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="min-height: 40px;">{{ report.description }}</div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align: center; height: 30px; margin-top: 10px;">Fecha de creacion: {{ report.createdAt|date("d/m/Y H:i:s") }}|</div><br>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align: center; height: 30px; margin-top: 10px;">Última modificación: {{ report.updatedAt|date("d/m/Y H:i:s") }}||</div><br>
+                    <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12" style="text-align: center; height: 40px;">Creador: <a class="color-green" href="{{ path('app_usuario_show', {'slug': report.creador.id }) }}">{{ report.creador }}</a></div><br>
+                </div>
 
-        {% endfor %}
-    </table>
+            {% endfor %}
+        </div>
+    </div>
     <div style="margin-top: 10px">
         <a href="{{ path('app_index_insertreport') }}">New Report</a>
     </div>

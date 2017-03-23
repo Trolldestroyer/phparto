@@ -10,10 +10,6 @@
         <h1>Perfil de {{ usuario.username }}</h1>
         <div class="profile-bio" style="margin-bottom:30px">
             <div class="row">
-                <div class="col-md-5 col-md-offset-0">
-                    <img class="round img-responsive md-margin-bottom-10" src="{{ asset('images/jaguar.jpg') }}" alt="perfil">
-
-                </div>
                 <div class="col-md-7">
                     <h2>{{ usuario.username }}</h2>
                     <span><strong>E-mail:</strong> {{ usuario.email }}</span>
@@ -28,17 +24,14 @@
         <div class="profile-body">
             {% for report in usuario.reportsCreados %}
                 <div class="col-sm-6 profile-body" style="min-height: 523px">
-                    <div class="easy-block-v1">
-                        <img class="img-responsive" src="{{ asset('images/busy.jpg') }}" alt="">
-                        <div class="easy-block-v1-badge rgba-red">{{ report.categoria }}</div>
-                    </div>
+
                     <div class="projects">
-                        <h2><a class="color-dark" href="{{ path('app_index_show', {'slug': report.id}) }}">{{ report.nombre }}</a></h2>
+                        <h2><a class="color-dark" href="{{ path('app_index_show', {'slug': report.id}) }}">{{ report.title }}</a></h2>
                         <ul class="list-unstyled list-inline blog-info-v2">
                             <li>By: <a class="color-green" href="{{ path('app_index_show', {'slug': report.id}) }}">{{ report.creador }}</a></li>
                             <li><i class="fa fa-clock-o"></i> {{ report.createdAt| date("d/m/Y H:i:s") }}</li>
                         </ul>
-                        <p>{{ report.descripcion }}</p>
+                        <p>{{ report.description }}</p>
                         <br>
 
 

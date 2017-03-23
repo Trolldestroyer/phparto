@@ -44,14 +44,17 @@ class User extends BaseUser
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Report", mappedBy="creador")
+     */
+    private $reportsCreados;
     public function __construct()
     {
         parent::__construct();
-
+        $this->reportsCreados = new ArrayCollection();
         $this->createdAt    = new \DateTime();
         $this->updatedAt    = $this->createdAt;
     }
-
     public function setCreatedAt()
     {
         // never used
@@ -93,5 +96,20 @@ class User extends BaseUser
     public function __toString()
     {
         return $this->username;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReportsCreados()
+    {
+        return $this->reportsCreados;
+    }
+    /**
+     * @param mixed $reportsCreados
+     */
+    public function setReportsCreados($reportsCreados)
+    {
+        $this->reportsCreados = $reportsCreados;
     }
 }
