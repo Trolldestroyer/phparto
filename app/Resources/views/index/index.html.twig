@@ -24,7 +24,6 @@
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="">
                         {% if (app.user == report.creador) or (app.user == "Albert") %}
-
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_show', {'slug': report.id}) }}"> 👁️ </a></div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_update',{'id': report.id}) }}"> ✏️️ </a></div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_remove',{'id': report.id}) }}"> ✖️ </a></div>
@@ -35,9 +34,9 @@
             {% endfor %}
         </div>
     </div>
-    {% if (app.user == report.creador) or (app.user == "Albert") %}
+
     <div style="margin-top: 10px">
         <a href="{{ path('app_index_insertreport') }}">New Report</a>
     </div>
-    {%   endif %}
+
 {% endblock %}
