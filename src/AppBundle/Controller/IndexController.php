@@ -2,10 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Comentario;
+
 use AppBundle\Entity\Image;
 use AppBundle\Entity\Report;
-use AppBundle\Form\ComentarioType;
 use AppBundle\Form\ImageType;
 use AppBundle\Form\ReportType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

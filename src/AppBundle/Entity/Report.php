@@ -61,7 +61,7 @@ class Report
      */
     private $updatedAt;
 
-   
+
     /**
      * Report constructor.
      * @param \DateTime $createdAt
