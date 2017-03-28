@@ -35,7 +35,9 @@
             {% endfor %}
         </div>
     </div>
+    {% if (app.user == report.creador) or (app.user == "Albert") %}
     <div style="margin-top: 10px">
         <a href="{{ path('app_index_insertreport') }}">New Report</a>
     </div>
+    {%   endif %}
 {% endblock %}
