@@ -61,10 +61,7 @@ class Report
      */
     private $updatedAt;
 
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comentario", mappedBy="comentarista")
-     */
-    private $comentariosCreados;
+   
     /**
      * Report constructor.
      * @param \DateTime $createdAt
