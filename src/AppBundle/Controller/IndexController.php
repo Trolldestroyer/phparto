@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Comentario;
 use AppBundle\Entity\Image;
 use AppBundle\Entity\Report;
+use AppBundle\Form\ComentarioType;
 use AppBundle\Form\ImageType;
 use AppBundle\Form\ReportType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -70,7 +72,7 @@ class IndexController extends Controller
     public function doinsertreportAction(Request $request)
     {
         $p=new Report();
-        //add creator
+        //añadimos creator
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             throw $this->createAccessDeniedException();
         }
@@ -96,6 +98,8 @@ class IndexController extends Controller
             ]
         );
     }
+
+
     /**
      * @Route("/remove/{id}", name="app_index_remove")
      * @return \Symfony\Component\HttpFoundation\Response

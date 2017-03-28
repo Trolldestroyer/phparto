@@ -1,7 +1,7 @@
 
 {% extends '::base.html.twig' %}
 
-{% block headTitle %}{{ report.nombre }}{% endblock %}
+{% block headTitle %}{{ report.title }}{% endblock %}
 
 {% block body %}
 
@@ -22,6 +22,8 @@
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_update',{'id': report.id}) }}"> ✏️️ </a></div>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_remove',{'id': report.id}) }}"> ✖️ </a></div>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_index') }}"> ↪️ </a></div>
+
+
         </div>
     </div>
 

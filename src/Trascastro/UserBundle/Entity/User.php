@@ -48,6 +48,8 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Report", mappedBy="creador")
      */
     private $reportsCreados;
+
+
     public function __construct()
     {
         parent::__construct();

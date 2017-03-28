@@ -23,9 +23,12 @@
                         <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12" style="height: 40px;">Creador: <a class="color-green" href="{{ path('app_usuario_show', {'slug': report.creador.id }) }}">{{ report.creador }}</a></div><br>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="">
+                        {% if (app.user == report.creador) or (app.user == "Albert") %}
+
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_show', {'slug': report.id}) }}"> 👁️ </a></div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_update',{'id': report.id}) }}"> ✏️️ </a></div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_remove',{'id': report.id}) }}"> ✖️ </a></div>
+                        {%   endif %}
                     </div>
             </div>
 

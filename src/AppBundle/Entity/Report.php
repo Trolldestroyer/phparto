@@ -62,12 +62,17 @@ class Report
     private $updatedAt;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comentario", mappedBy="comentarista")
+     */
+    private $comentariosCreados;
+    /**
      * Report constructor.
      * @param \DateTime $createdAt
      * @param \DateTime $updatedAt
      */
     public function __construct()
     {
+      //  $this-$this->comentariosCreados = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = $this->createdAt;
     }
