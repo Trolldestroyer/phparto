@@ -64,7 +64,7 @@ class Report
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comentario", mappedBy="report")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comentario", mappedBy="report", cascade={"remove"})
      */
     private $comentarios;
 

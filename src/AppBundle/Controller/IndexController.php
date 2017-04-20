@@ -232,7 +232,6 @@ class IndexController extends Controller
      */
     public function showAction($slug)
     {
-        $n = "porque si";
         $m = $this->getDoctrine()->getManager();
         $repository= $m->getRepository('AppBundle:Report');
         $report=$repository->find($slug);
