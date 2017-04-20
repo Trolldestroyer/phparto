@@ -48,15 +48,21 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Report", mappedBy="creador")
      */
     private $reportsCreados;
-
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comentario", mappedBy="creador")
+     */
+    private $comentariosCreados;
 
     public function __construct()
     {
         parent::__construct();
+
         $this->reportsCreados = new ArrayCollection();
+        $this->comentariosCreados = new ArrayCollection();
         $this->createdAt    = new \DateTime();
         $this->updatedAt    = $this->createdAt;
     }
+
     public function setCreatedAt()
     {
         // never used
@@ -107,6 +113,7 @@ class User extends BaseUser
     {
         return $this->reportsCreados;
     }
+
     /**
      * @param mixed $reportsCreados
      */
@@ -114,4 +121,5 @@ class User extends BaseUser
     {
         $this->reportsCreados = $reportsCreados;
     }
+
 }

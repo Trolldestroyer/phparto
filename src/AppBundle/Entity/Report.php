@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Report
  *
@@ -61,15 +63,15 @@ class Report
      */
     private $updatedAt;
 
-
     /**
-     * Report constructor.
-     * @param \DateTime $createdAt
-     * @param \DateTime $updatedAt
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comentario", mappedBy="report")
      */
+    private $comentarios;
+
+
     public function __construct()
     {
-      //  $this-$this->comentariosCreados = new ArrayCollection();
+        $this->comentarios = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = $this->createdAt;
     }
@@ -181,5 +183,37 @@ class Report
         $this->updatedAt = new \DateTime();
     }
 
+    /**
+     * @return mixed
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
+    }
+
+
+    /**
+     * Add comentario
+     *
+     * @param \AppBundle\Entity\Comentario $comentario
+     *
+     * @return Report
+     */
+    public function addComentarios(\AppBundle\Entity\Comentario $comentario)
+    {
+        $this->comentarios[] = $comentario;
+        return $this;
+    }
+    /**
+     * Remove comentarios
+     *
+     * @param \AppBundle\Entity\Comentario $comentarios
+     */
+    public function removeComentarios(\AppBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios->removeElement($comentarios);
+    }
 }
 
