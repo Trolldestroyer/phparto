@@ -38,10 +38,11 @@
                         <div class="media-body">
                             <h4 class="media-heading"> <a href="{{ path('app_usuario_show', {'slug': comentario.creador.id }) }}">{{ comentario.creador.username }}</a></h4>
                             <p> {{ comentario.comentarios }} </p>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><a style="" href="{{ path('app_index_removeComentario',{'id': comentario.id}) }}"> ✖️ </a></div>
                         </div>
                     </div>
                 {% endfor %}
-                <a href="{{ path('app_index_nuevoComentario',{'id': report.id}) }}"><button class="btn btn-default" > ✏️️ Añadir Comentario</button></a>
+                <a href="{{ path('app_index_nuevoComentario',{'id': report.id}) }}"><button class="btn btn-default" >Añadir Comentario</button></a>
             </div>
 
         </div>

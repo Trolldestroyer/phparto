@@ -137,7 +137,30 @@ class IndexController extends Controller
         );
     }
 
+    /**
+     * @Route("/removeComentario/{id}", name="app_index_removeComentario")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function removeComentarioAction($id)
+    {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }
+        $m = $this->getDoctrine()->getManager();
+        $repo = $m->getRepository('AppBundle:Comentario');
+        $comentario = $repo->find($id);
+        $report = $comentario->getReport();
+        $postid = $report->getID();
+        $creator= $comentario->getCreador().$id;
+        $current = $this->getUser().$id;
 
+        if (($current!=$creator)&&(!$this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN'))) {
+            throw $this->createAccessDeniedException();
+        }
+        $m->remove($comentario);
+        $m->flush();
+        return $this->redirectToRoute('app_index_show',['slug' => $postid]);
+    }
     /**
      * @Route("/remove/{id}", name="app_index_remove")
      * @return \Symfony\Component\HttpFoundation\Response
