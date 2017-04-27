@@ -154,7 +154,9 @@ class IndexController extends Controller
         $creator= $comentario->getCreador().$id;
         $current = $this->getUser().$id;
 
-
+        if (($current!=$creator)&&(!$this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN'))) {
+            throw $this->createAccessDeniedException();
+        }
         $m->remove($comentario);
         $m->flush();
         return $this->redirectToRoute('app_index_show',array('slug' => $postid));
