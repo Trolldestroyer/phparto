@@ -159,7 +159,7 @@ class IndexController extends Controller
         }
         $m->remove($comentario);
         $m->flush();
-        return $this->redirectToRoute('app_index_show',['slug' => $postid]);
+        return $this->redirectToRoute('app_index_show',array('slug' => $postid));
     }
     /**
      * @Route("/remove/{id}", name="app_index_remove")
